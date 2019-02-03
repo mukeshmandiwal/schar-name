@@ -15,7 +15,7 @@
     "lint": "eslint src",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "validate": "npm-run-all --parallel test lint build",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -57,7 +57,7 @@
     "nyc": "7.1.0",
     "opt-cli": "1.5.1",
     "rimraf": "2.5.4",
-    "semantic-release": "4.3.5",
+    "semantic-release": "15.13.3",
     "validate-commit-msg": "2.6.1",
     "webpack": "1.13.1"
   },
@@ -98,8 +98,8 @@
       "path": "cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "opt --in pre-commit --exec \"npm run validate\"",
-      "commit-msg": "opt --in commit-msg --exec \"validate-commit-msg\""
+      "pre-commit": "npm run validate",
+      "commit-msg": "validate-commit-msg"
     }
   }
 }
